@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="data.json" ></script>
+    <div id="ids"></div>
+    <script type="text/javascript">
+        var ms = "";
+        for (let d of data) {
+            for (let i of d.Values) {
+                console.log(i);
+                ms += "<img src='" + i + "' alt='sa' width='100px' />";
+            }
+        }
+        var md = document.getElementById("ids");
+        md.innerHTML = ms;
+    </script>
+</body>
+</html>
