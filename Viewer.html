@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <style>
+        .imageBlock{
+            padding:4px;
+        }
+    </style>
 </head>
 <body>
     <script type="text/javascript" src="data.json" ></script>
@@ -11,13 +16,18 @@
     <script type="text/javascript">
         var ms = "";
         for (let d of data) {
+            ms +="<div >"
             for (let i of d.Values) {
                 console.log(i);
-                ms += "<img src='" + i + "' alt='sa' width='100px' />";
+                ms += "<img class='imageBlock' onclick=\"openPath('" + i.replaceAll("\\", "\\\\")+"')\" src='" + i + "' alt='sa' width='100px' />";
             }
+            ms += "</div>"
         }
         var md = document.getElementById("ids");
         md.innerHTML = ms;
+        function openPath(path) {
+            window.open("file:\\" + path, "explorer")
+        }
     </script>
 </body>
 </html>
